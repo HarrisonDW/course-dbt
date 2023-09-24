@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: intermediate
+    database: raw
+    schema: public
+    tables:
+      - name: int_addresses
+      - name: int_events
+      - name: int_promos
+      - name: int_products
+      - name: int_orders
+      - name: int_order_items
+      - name: int_users
+      - name: int_fact_page_views
+      - name: int_fact_orders

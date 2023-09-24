@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: business_logic
+    database: raw
+    schema: public
+    tables:
+      - name: dim_addresses
+      - name: dim_events
+      - name: dim_promos
+      - name: dim_products
+      - name: dim_orders 
+      - name: dim_order_items
+      - name: dim_users
+      - name: fact_orders 
+        description: This fact table contains the orders and additional fields for the operation department as well as marketing related order details like the Repeat Rate
+      - name: fact_page_views
+        description: This fact table contains page view events for marketing purposes
