@@ -2,7 +2,6 @@ version: 2
 
 models:
 
-
   - name: stg_orders
     description: Placed orders by consumers
     columns:
@@ -13,8 +12,7 @@ models:
           - not_null
       - name: user_id
         description: UUID of the user who placed the order
-        test: 
-          - unique
+        tests: 
           - not_null
       - name: promo_id
         description: UUID of the promo code used in the order (if any)
@@ -28,6 +26,9 @@ models:
         description: Cost of shipping for the order
       - name: order_total
         description: Total cost of the order including shipping
+        tests: 
+          - dbt_expectations.expect_column_max_to_be_between:
+              max_value: 5000  
       - name: tracking_id
         description: Tracking number for the order/package
       - name: shipping_service
@@ -38,7 +39,7 @@ models:
         description: Actual delivery timestamp
       - name: status
         description: Status of the order
-  
+
   - name: stg_order_items
     description: Ordered items (part of the order)
     columns:
