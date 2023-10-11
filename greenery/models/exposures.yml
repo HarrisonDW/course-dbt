@@ -1,0 +1,19 @@
+version: 2
+
+exposures:
+
+  - name: product_funnel
+    type: dashboard
+    maturity: high
+    url: https://example.come
+    description: >
+      This dashbaord shows funnel for all our products
+
+    depends_on:
+      - ref('int_session_events_agg')
+      - ref('fact_events_flattend')
+      - ref('dim_products')
+
+    owner:
+      name: Harrison 
+      email: harry@data.com
